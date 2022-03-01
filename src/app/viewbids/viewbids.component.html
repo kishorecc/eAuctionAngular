@@ -1,0 +1,56 @@
+<div width="1500px"  class="mat-app-background basic-container"><mat-card><mat-form-field >
+    <mat-select placeholder="Products" name="ddlProducts">
+      <mat-option *ngFor="let seller of products" [value]="seller.id"  (click)="getSeller(seller.id)"  >
+        {{ seller["Product Name"] }}
+      </mat-option>
+    </mat-select>
+</mat-form-field>
+</mat-card>
+<mat-divider></mat-divider>
+<mat-card> <b>Product Details</b>
+<mat-grid-list cols="2" rowHeight="50px" *ngFor="let seller of sellerSelect">
+    <mat-grid-tile>Product Name</mat-grid-tile>
+    <mat-grid-tile> {{seller["Product Name"]}}</mat-grid-tile>
+    <mat-grid-tile>Short Description</mat-grid-tile>
+    <mat-grid-tile>{{seller["Short Description"]}}</mat-grid-tile>
+    <mat-grid-tile>Detail Description</mat-grid-tile>
+    <mat-grid-tile>{{seller["Detail Description"]}}</mat-grid-tile>
+    <mat-grid-tile>Category</mat-grid-tile>
+    <mat-grid-tile>{{seller["Category"]}}</mat-grid-tile>
+    <mat-grid-tile>Starting Price</mat-grid-tile>
+    <mat-grid-tile>{{seller["Starting Price"]}}</mat-grid-tile>
+    <mat-grid-tile>Bid End Date</mat-grid-tile>
+    <mat-grid-tile>{{seller["Bid End Date"]}}</mat-grid-tile>
+  </mat-grid-list>
+ 
+</mat-card>
+<mat-divider></mat-divider>
+<mat-card> <b>Bids</b>
+<div class="example-container ">
+    <mat-table #table  [dataSource]="bids">        
+        <ng-container matColumnDef="BidAmount">
+          <mat-header-cell *matHeaderCellDef > Bid Amount </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element["Bid Amount"]}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="Name">
+            <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element["First Name"]}}  {{element["Last Name"]}}</mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="Email">
+            <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element["eMail"]}} </mat-cell>
+          </ng-container>
+
+              <ng-container matColumnDef="Mobile">
+            <mat-header-cell *matHeaderCellDef> Mobiles</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element["Phone"]}} </mat-cell>
+          </ng-container>
+  
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+</div>
+</mat-card>
+  
+</div>

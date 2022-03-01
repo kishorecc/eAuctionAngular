@@ -1,0 +1,5 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/289feeeb-460b-4c43-bd95-2168d55f33c4/resourceGroups/eAuction/providers/Microsoft.Web/sites/eAuctionAngular",
+    "appService.deploySubpath": "dist/eAuctionApp",
+    "appService.showBuildDuringDeployPrompt": false
+}

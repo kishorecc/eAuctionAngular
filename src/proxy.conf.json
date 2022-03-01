@@ -1,0 +1,7 @@
+{
+    "/api/*": {
+        "target": "https://e-auctionnetapi.azurewebsites.net/api/seller",
+        "secure": true,
+        "logLevel": "debug"
+    }
+}
